@@ -97,11 +97,11 @@ GitHub Actions runs the same for cellpy 2.x, plus a cellpy 1.x job for
 
 ### Notebooks and git
 
-Jupyter notebooks stay as `.ipynb` so GitHub can render them. A
-[pre-commit](https://pre-commit.com/) hook runs
-[nbstripout](https://github.com/kynan/nbstripout) so outputs and execution
-counts are stripped before commit (cleaner diffs; run notebooks locally as
-usual).
+Jupyter notebooks stay as `.ipynb` so GitHub can render them. Pre-commit runs:
+
+- [ruff](https://docs.astral.sh/ruff/) check/format on `.py` and `.ipynb`
+- [nbstripout](https://github.com/kynan/nbstripout) to strip outputs / execution
+  counts (cleaner diffs; run notebooks locally as usual)
 
 One-time setup after clone:
 
@@ -110,10 +110,10 @@ uv sync --group dev
 uv run pre-commit install
 ```
 
-Strip all notebooks already in the tree (optional):
+Run hooks on the whole tree (optional):
 
 ```shell
-uv run pre-commit run nbstripout --all-files
+uv run pre-commit run --all-files
 ```
 
 ### Local editable cellpy

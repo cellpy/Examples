@@ -9,7 +9,8 @@ Not example content. Conda environment YAML files live in
 
 ## Notebooks and git
 
-Repo root has `.pre-commit-config.yaml` (`nbstripout`). After clone:
+Repo root `.pre-commit-config.yaml` runs **ruff** (check `--fix` + format on
+`.py` / `.ipynb`) then **nbstripout**. After clone:
 
 ```shell
 uv sync --group dev
