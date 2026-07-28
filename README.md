@@ -26,8 +26,9 @@ To refresh an environment later (after we update the YAML):
 conda env update -f environments/cellpy_v2.yml --prune
 ```
 
-Then open notebooks or run a script (see below). Some examples may download
-small sample data files the first time you run them (network required).
+Then open examples under the matching top-level folder (`v1/` or `v2/`).
+Some examples may download small sample data files the first time you run
+them (network required).
 
 Smoke-test the install:
 
@@ -37,49 +38,39 @@ python scripts/load_example_data.py
 
 ## What's in this repo
 
-### `marimo-notebooks/`
+Versioned example content lives under **`v1/`** and **`v2/`** (pick the one
+that matches your conda env). Shared assets stay at the repo root.
 
-[Marimo](https://marimo.io/) notebooks — reactive apps you edit and run in the
-browser. From the activated env:
+### `v1/` / `v2/` (versioned)
 
-```shell
-marimo edit marimo-notebooks/
-# or run a specific notebook without editing:
-# marimo run marimo-notebooks/some_notebook.py
-```
+Each contains:
 
-### `jupyter-notebooks/`
-
-Classic Jupyter notebooks, split by cellpy major version:
-
-- `jupyter-notebooks/v1/` — for the cellpy 1.x env (`cellpy_examples_v1`)
-- `jupyter-notebooks/v2/` — for the cellpy 2.x env (`cellpy_examples_v2`)
-
-From the activated env:
+- `jupyter-notebooks/` — classic Jupyter tutorials
+- `other/cellpy batch utility/` — batch processing notebook + sample raw data
+- `other/cellpy project template/` — cookiecutter project template
 
 ```shell
 jupyter lab
-# or: jupyter notebook
+# open e.g. v2/jupyter-notebooks/ in the file browser
 ```
 
-Open the matching `v1` or `v2` folder in the file browser.
+### Shared (repo root)
 
-### `scripts/`
-
-Plain Python example scripts. With the env active:
+| Path | Purpose |
+|------|---------|
+| `example_data/` | Sample data files used by the notebooks |
+| `environments/` | Conda env YAMLs for cellpy 1.x / 2.x |
+| `scripts/` | Plain Python example scripts |
+| `marimo-notebooks/` | Marimo notebooks (shared / TBD) |
+| `dev/` | Maintainer helpers (local editable cellpy, etc.) |
 
 ```shell
 python scripts/load_example_data.py
+marimo edit marimo-notebooks/
 ```
 
-### `environments/`
-
-Conda environment YAML files for cellpy 1.x and 2.x. See
-[environments/README.md](environments/README.md).
-
-### `dev/`
-
-Maintainer helpers (not example content). See [dev/README.md](dev/README.md).
+See also [environments/README.md](environments/README.md) and
+[dev/README.md](dev/README.md).
 
 ## For developers
 
