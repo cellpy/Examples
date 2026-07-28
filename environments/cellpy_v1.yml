@@ -1,0 +1,19 @@
+# Latest cellpy 1.x from PyPI (currently 1.1.0.post3).
+name: cellpy_examples_v1
+channels:
+  - conda-forge
+dependencies:
+  - python >= 3.13
+  - pip
+  - ipykernel
+  - ipywidgets
+  - jupyter
+  - jupyterlab
+  - marimo
+  - matplotlib
+  - pandas
+  - plotly
+  - polars
+  - pyarrow
+  - pip:
+      - cellpy >= 1.1.0, < 2
