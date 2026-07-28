@@ -1,0 +1,18 @@
+[project]
+name = "examples"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipywidgets>=8.1.8",
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.6.2",
+    "marimo>=0.23.15",
+    "matplotlib>=3.11.1",
+    "nbconvert>=7.17.1",
+    "pandas>=3.0.5",
+    "plotly>=6.9.0",
+    "polars>=1.43.1",
+    "pyarrow>=25.0.0",
+]
