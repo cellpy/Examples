@@ -13,6 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install mdbtools
+        # Arbin .res loaders shell out to mdb-export (batch + format notebooks).
+        run: sudo apt-get update && sudo apt-get install -y mdbtools
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
@@ -34,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install mdbtools
+        run: sudo apt-get update && sudo apt-get install -y mdbtools
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
