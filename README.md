@@ -18,11 +18,11 @@ show up immediately):
 
 ```shell
 # default path: ../cellpy (sibling of this repo)
-scripts/dev_sync.sh
+dev/dev_sync.sh
 
 # or an explicit path
-scripts/dev_sync.sh /path/to/cellpy
-# CELLPY_ROOT=/path/to/cellpy scripts/dev_sync.sh
+dev/dev_sync.sh /path/to/cellpy
+# CELLPY_ROOT=/path/to/cellpy dev/dev_sync.sh
 ```
 
 That syncs from the lock, then runs `uv pip install -e <cellpy>`. No
@@ -36,10 +36,10 @@ layout, and would rewrite `uv.lock`).
 - `uv run --no-sync ...`
 
 Switch branch in the `cellpy` repo as usual — the editable install tracks that
-tree. Re-run `scripts/dev_sync.sh` after a plain `uv sync` / `uv add`.
+tree. Re-run `dev/dev_sync.sh` after a plain `uv sync` / `uv add`.
 
 Back to locked PyPI `cellpy`:
 
 ```shell
-scripts/dev_sync.sh --pypi
+dev/dev_sync.sh --pypi
 ```
