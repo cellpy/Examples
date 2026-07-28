@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from helpers import REPO_ROOT, cellpy_major
 
 # Start small: one tutorial notebook for cellpy 2.x. Expand later.

@@ -24,6 +24,15 @@ uv run pytest tests/test_scripts.py -q
 MPLBACKEND=Agg uv run pytest tests/test_notebooks.py -q -m notebook
 ```
 
+## Ruff
+
+Formats/lints `.py` and `.ipynb` (`extend-include` in `pyproject.toml`):
+
+```shell
+uv run ruff format .
+uv run ruff check --fix .
+```
+
 ## Local editable cellpy (developers)
 
 See the “For developers” section in the [main README](../README.md).

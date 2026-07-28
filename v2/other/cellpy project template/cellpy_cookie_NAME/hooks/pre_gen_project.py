@@ -1,7 +1,6 @@
 import os
 import sys
 
-
 MIN_CELLPY_MAJOR, MIN_CELLPY_MINOR = 1, 0
 cellpy_version = "{{ cookiecutter.cellpy_version }}"
 major, minor = cellpy_version.split(".")[:2]
@@ -11,9 +10,8 @@ too_old = False
 if major < MIN_CELLPY_MAJOR:
     too_old = True
 
-if major == MIN_CELLPY_MAJOR:
-    if minor < MIN_CELLPY_MINOR:
-        too_old = True
+if major == MIN_CELLPY_MAJOR and minor < MIN_CELLPY_MINOR:
+    too_old = True
 
 # additional test for patch version since v.1.0.0 -> v.1.0.1 introduced a new batch method.
 if major == MIN_CELLPY_MAJOR and minor == MIN_CELLPY_MINOR:

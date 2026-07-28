@@ -6,7 +6,6 @@ import importlib.util
 from pathlib import Path
 
 import pytest
-
 from helpers import REPO_ROOT, cellpy_major
 
 SCRIPTS = {
@@ -32,4 +31,3 @@ def test_load_example_data_script(major: int) -> None:
     assert script.is_file(), script
     module = _load_module(script)
     module.main()
-

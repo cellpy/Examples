@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from helpers import REPO_ROOT, cellpy_major
 
 
