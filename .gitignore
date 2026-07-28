@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Notebook / example run artifacts (keep fixtures under example_data/)
+**/cellpy_debug.log
+**/cellpy_debug.log.*
+**/cellpy_errors.log
+**/cellpy_info.log
+v*/jupyter-notebooks/out/
+v*/jupyter-notebooks/pec_data.*
+v*/other/cellpy batch utility/out/*
+!v*/other/cellpy batch utility/out/.gitkeep
+v*/other/cellpy batch utility/dump/
+v*/other/cellpy batch utility/cellpy_batch_*.json
+v*/other/cellpy batch utility/data/cellpyfiles/*
+!v*/other/cellpy batch utility/data/cellpyfiles/.gitkeep

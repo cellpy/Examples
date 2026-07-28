@@ -8,7 +8,7 @@ on:
 
 jobs:
   v2:
-    name: cellpy 2.x (scripts + notebook smoke)
+    name: cellpy 2.x (scripts + notebooks + cookiecutter)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,16 +21,16 @@ jobs:
       - name: Sync environment
         run: uv sync --group dev
 
-      - name: Scripts smoke
-        run: uv run pytest tests/test_scripts.py -q
+      - name: Scripts + cookiecutter
+        run: uv run pytest tests/test_scripts.py tests/test_cookiecutter.py -q
 
-      - name: Notebook smoke
+      - name: Notebooks (jupyter + batch)
         env:
           MPLBACKEND: Agg
         run: uv run pytest tests/test_notebooks.py -q -m notebook
 
   v1:
-    name: cellpy 1.x (scripts smoke)
+    name: cellpy 1.x (scripts + notebooks + cookiecutter)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,5 +47,10 @@ jobs:
         # Project pin is cellpy>=2; CI overlays 1.x for the v1 examples.
         run: uv pip install "cellpy>=1.1.0,<2"
 
-      - name: Scripts smoke
-        run: uv run --no-sync pytest tests/test_scripts.py -q
+      - name: Scripts + cookiecutter
+        run: uv run --no-sync pytest tests/test_scripts.py tests/test_cookiecutter.py -q
+
+      - name: Notebooks (jupyter + batch)
+        env:
+          MPLBACKEND: Agg
+        run: uv run --no-sync pytest tests/test_notebooks.py -q -m notebook

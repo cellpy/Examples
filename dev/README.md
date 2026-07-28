@@ -19,10 +19,12 @@ uv run pre-commit install
 
 ## Tests
 
+Full matrix (scripts, jupyter, batch, cookiecutter) for the installed cellpy
+major; other major is skipped. See main README.
+
 ```shell
 uv sync --group dev
-uv run pytest tests/test_scripts.py -q
-MPLBACKEND=Agg uv run pytest tests/test_notebooks.py -q -m notebook
+MPLBACKEND=Agg uv run pytest tests/ -q
 ```
 
 ## Ruff

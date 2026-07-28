@@ -84,16 +84,31 @@ That installs a released `cellpy` from PyPI (locked in `uv.lock`). No local
 
 ### Tests
 
-Smoke tests live under `tests/`. With the uv env (cellpy 2.x):
+Smoke tests live under `tests/`. Each case skips unless the installed
+`cellpy` major matches the example tree (`v1/` ↔ 1.x, `v2/` ↔ 2.x).
+
+Covered:
+
+- `v*/scripts/` — example scripts
+- `v*/jupyter-notebooks/*.ipynb` — tutorial notebooks
+- `v*/other/cellpy batch utility/*.ipynb` — batch notebook
+- `v*/other/cellpy project template/` — cookiecutter generate smoke
+
+With the uv env (cellpy 2.x — runs the `v2/` matrix):
 
 ```shell
 uv sync --group dev
-uv run pytest tests/test_scripts.py -q
-MPLBACKEND=Agg uv run pytest tests/test_notebooks.py -q -m notebook
+MPLBACKEND=Agg uv run pytest tests/ -q
 ```
 
-GitHub Actions runs the same for cellpy 2.x, plus a cellpy 1.x job for
-`v1/scripts` (see `.github/workflows/examples-tests.yml`).
+For the `v1/` matrix, overlay cellpy 1.x then use `--no-sync`:
+
+```shell
+uv pip install "cellpy>=1.1.0,<2"
+MPLBACKEND=Agg uv run --no-sync pytest tests/ -q
+```
+
+GitHub Actions runs both majors (see `.github/workflows/examples-tests.yml`).
 
 ### Notebooks and git
 
