@@ -50,14 +50,19 @@ marimo edit marimo-notebooks/
 
 ### `jupyter-notebooks/`
 
-Classic Jupyter notebooks. From the activated env:
+Classic Jupyter notebooks, split by cellpy major version:
+
+- `jupyter-notebooks/v1/` — for the cellpy 1.x env (`cellpy_examples_v1`)
+- `jupyter-notebooks/v2/` — for the cellpy 2.x env (`cellpy_examples_v2`)
+
+From the activated env:
 
 ```shell
 jupyter lab
 # or: jupyter notebook
 ```
 
-Open files under `jupyter-notebooks/` in the file browser.
+Open the matching `v1` or `v2` folder in the file browser.
 
 ### `scripts/`
 
