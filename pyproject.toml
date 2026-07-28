@@ -20,5 +20,16 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "nbmake>=1.5.5",
     "pre-commit>=4.0.0",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "notebook: execute Jupyter notebooks (slower)",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
 ]

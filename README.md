@@ -82,6 +82,19 @@ uv sync
 That installs a released `cellpy` from PyPI (locked in `uv.lock`). No local
 `cellpy` checkout is required.
 
+### Tests
+
+Smoke tests live under `tests/`. With the uv env (cellpy 2.x):
+
+```shell
+uv sync --group dev
+uv run pytest tests/test_scripts.py -q
+MPLBACKEND=Agg uv run pytest tests/test_notebooks.py -q -m notebook
+```
+
+GitHub Actions runs the same for cellpy 2.x, plus a cellpy 1.x job for
+`v1/scripts` (see `.github/workflows/examples-tests.yml`).
+
 ### Notebooks and git
 
 Jupyter notebooks stay as `.ipynb` so GitHub can render them. A

@@ -1,0 +1,51 @@
+name: examples-tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  v2:
+    name: cellpy 2.x (scripts + notebook smoke)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync environment
+        run: uv sync --group dev
+
+      - name: Scripts smoke
+        run: uv run pytest tests/test_scripts.py -q
+
+      - name: Notebook smoke
+        env:
+          MPLBACKEND: Agg
+        run: uv run pytest tests/test_notebooks.py -q -m notebook
+
+  v1:
+    name: cellpy 1.x (scripts smoke)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync environment
+        run: uv sync --group dev
+
+      - name: Overlay cellpy 1.x
+        # Project pin is cellpy>=2; CI overlays 1.x for the v1 examples.
+        run: uv pip install "cellpy>=1.1.0,<2"
+
+      - name: Scripts smoke
+        run: uv run --no-sync pytest tests/test_scripts.py -q
