@@ -82,6 +82,27 @@ uv sync
 That installs a released `cellpy` from PyPI (locked in `uv.lock`). No local
 `cellpy` checkout is required.
 
+### Notebooks and git
+
+Jupyter notebooks stay as `.ipynb` so GitHub can render them. A
+[pre-commit](https://pre-commit.com/) hook runs
+[nbstripout](https://github.com/kynan/nbstripout) so outputs and execution
+counts are stripped before commit (cleaner diffs; run notebooks locally as
+usual).
+
+One-time setup after clone:
+
+```shell
+uv sync --group dev
+uv run pre-commit install
+```
+
+Strip all notebooks already in the tree (optional):
+
+```shell
+uv run pre-commit run nbstripout --all-files
+```
+
 ### Local editable cellpy
 
 To run examples against a local editable `cellpy` clone (branch/checkout

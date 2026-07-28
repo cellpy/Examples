@@ -1,0 +1,9 @@
+# Strip notebook outputs / execution counts before commit so GitHub still
+# renders .ipynb files without noisy JSON diffs. Install once:
+#   uv sync --group dev
+#   uv run pre-commit install
+repos:
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.1
+    hooks:
+      - id: nbstripout
