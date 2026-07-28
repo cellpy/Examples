@@ -33,7 +33,7 @@ them (network required).
 Smoke-test the install:
 
 ```shell
-python scripts/load_example_data.py
+python v2/scripts/load_example_data.py
 ```
 
 ## What's in this repo
@@ -46,12 +46,17 @@ that matches your conda env). Shared assets stay at the repo root.
 Each contains:
 
 - `jupyter-notebooks/` — classic Jupyter tutorials
+- `marimo-notebooks/` — Marimo notebooks
+- `scripts/` — plain Python example scripts
 - `other/cellpy batch utility/` — batch processing notebook + sample raw data
 - `other/cellpy project template/` — cookiecutter project template
 
 ```shell
 jupyter lab
 # open e.g. v2/jupyter-notebooks/ in the file browser
+
+marimo edit v2/marimo-notebooks/
+python v2/scripts/load_example_data.py
 ```
 
 ### Shared (repo root)
@@ -60,14 +65,8 @@ jupyter lab
 |------|---------|
 | `example_data/` | Sample data files used by the notebooks |
 | `environments/` | Conda env YAMLs for cellpy 1.x / 2.x |
-| `scripts/` | Plain Python example scripts |
-| `marimo-notebooks/` | Marimo notebooks (shared / TBD) |
 | `dev/` | Maintainer helpers (local editable cellpy, etc.) |
 
-```shell
-python scripts/load_example_data.py
-marimo edit marimo-notebooks/
-```
 
 See also [environments/README.md](environments/README.md) and
 [dev/README.md](dev/README.md).

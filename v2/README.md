@@ -3,7 +3,9 @@
 Use with the `cellpy_examples_v2` conda env
 (`environments/cellpy_v2.yml` at the repo root).
 
-- `jupyter-notebooks/` — tutorials
+- `jupyter-notebooks/` — Jupyter tutorials
+- `marimo-notebooks/` — Marimo notebooks
+- `scripts/` — plain Python examples
 - `other/cellpy batch utility/` — batch notebook + local `data/`
 - `other/cellpy project template/` — cookiecutter template
 

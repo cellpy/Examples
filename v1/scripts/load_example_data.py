@@ -3,7 +3,7 @@
 Needs network the first time (downloads a small fixture). From the repo root,
 with an examples conda env active:
 
-    python scripts/load_example_data.py
+    python v1/scripts/load_example_data.py
 """
 
 from importlib.metadata import version
