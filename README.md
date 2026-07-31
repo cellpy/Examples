@@ -1,4 +1,6 @@
-# cellpy Examples
+# cellpy-examples
+
+Formerly **`Examples`** (`cellpy/Examples` → [`cellpy/cellpy-examples`](https://github.com/cellpy/cellpy-examples)).
 
 Notebooks and scripts that show how to load, plot, and analyse battery
 cycling data with [cellpy](https://cellpy.readthedocs.io). Aimed at people
